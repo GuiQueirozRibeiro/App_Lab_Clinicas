@@ -14,7 +14,6 @@ class DocumentsPage extends StatefulWidget {
 }
 
 class _DocumentsPageState extends State<DocumentsPage> {
-  final _formKey = GlobalKey<FormState>();
   final selfServiceController = Injector.get<SelfServiceController>();
 
   @override
@@ -87,10 +86,9 @@ class _DocumentsPageState extends State<DocumentsPage> {
                       child: AppDefaultEspecialButton(
                         sizeBoxOn: false,
                         style: OutlinedButton.styleFrom(
-                          foregroundColor: Colors.red,
-                          side: const BorderSide(color: Colors.red),
-                          fixedSize: const Size.fromHeight(48) 
-                        ),
+                            foregroundColor: Colors.red,
+                            side: const BorderSide(color: Colors.red),
+                            fixedSize: const Size.fromHeight(48)),
                         onPressed: () {},
                         label: 'REMOVER TODAS',
                         tipoBotao: false,
@@ -103,11 +101,10 @@ class _DocumentsPageState extends State<DocumentsPage> {
                       child: AppDefaultEspecialButton(
                         sizeBoxOn: false,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: LabClinicasTheme.orangeColor,
-                          fixedSize: const Size.fromHeight(48) 
-                        ),
+                            backgroundColor: LabClinicasTheme.orangeColor,
+                            fixedSize: const Size.fromHeight(48)),
                         onPressed: () {},
-                        label: 'FINALIZAR',                        
+                        label: 'FINALIZAR',
                       ),
                     ),
                   ],
@@ -118,25 +115,5 @@ class _DocumentsPageState extends State<DocumentsPage> {
         ),
       ),
     );
-  }
-
-  void _salvarecontinuar() {
-    final formValid = _formKey.currentState?.validate() ?? false;
-
-    if (formValid) {
-      FocusScope.of(context).unfocus();
-
-      //if (patientFound) {
-      //controller
-      //  .updateAndNext(updatePatient(selfServiceController.model.patient!));
-      //} else {
-      //controller.savaAndNext(createPatientRegister());
-      //}
-    }
-  }
-
-  void _continuar() {
-    //controller.patient = selfServiceController.model.patient;
-    //controller.goNextStep();
   }
 }
